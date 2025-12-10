@@ -4,11 +4,11 @@ from pipeline.data_runner import load_processed_df
 from pipeline.orchestrator import answer_question
 
 st.set_page_config(
-    page_title="InsightWeaver: Supply Chain Analytics Copilot",
+    page_title="Data Storytelling Copilot using RAG LLM",
     layout="wide",
 )
 
-st.title("📦 InsightWeaver – Smart Supply Chain Analytics Copilot")
+st.title("📦 Data Storytelling Copilot using RAG LLM")
 st.write(
     "Ask natural language questions about orders, deliveries, delays, "
     "customer segments, and profitability."

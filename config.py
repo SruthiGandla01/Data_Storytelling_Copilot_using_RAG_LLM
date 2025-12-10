@@ -57,7 +57,7 @@ EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
 USE_TINYLLAMA_LOCAL = True  # toggle
 TINYLLAMA_BASE = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
-TINYLLAMA_ADAPTER_PATH = PROJECT_ROOT / "fine_tuning" / "tinyllama_lora"
+TINYLLAMA_ADAPTER_PATH =  "/Users/sruthigandla/Documents/Northeastern/Prompt engineering/Final Project/finetuning/tinyllama_lora"
 
 # ----------------------------------------------------------
 # 5. DEBUG (optional)

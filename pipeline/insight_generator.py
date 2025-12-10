@@ -7,7 +7,7 @@ from openai import OpenAI
 from config import LLM_MODEL_NAME,USE_TINYLLAMA_LOCAL
 from rag.retriever import retrieve_context
 # TinyLlama narrative generator
-from fine_tuning.tinyllama_narrative import generate_narrative_tinyllama
+from finetuning.tinyllama_narrative import generate_narrative_tinyllama
 
 client = OpenAI()
 

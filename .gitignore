@@ -2,6 +2,8 @@
 .venv/
 venv/
 env/
+.env
+rag/chroma_store/
 
 # Python cache
 __pycache__/
@@ -16,11 +18,8 @@ __pycache__/
 # OS files
 .DS_Store
 
-# Data files that are too large for GitHub
-data/raw/DataCoSupplyChainDataset.csv
-data/raw/*.csv
-
 # Model artifacts (if they get big)
 fine_tuning/tinyllama_lora/
 checkpoints/
+
 
