@@ -1,0 +1,26 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter / VSCode stuff
+.ipynb_checkpoints/
+.vscode/
+
+# OS files
+.DS_Store
+
+# Data files that are too large for GitHub
+data/raw/DataCoSupplyChainDataset.csv
+data/raw/*.csv
+
+# Model artifacts (if they get big)
+fine_tuning/tinyllama_lora/
+checkpoints/
+

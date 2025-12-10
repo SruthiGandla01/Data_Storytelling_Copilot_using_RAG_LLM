@@ -1,0 +1,10 @@
+pandas
+numpy
+pyarrow
+streamlit
+sentence-transformers
+chromadb
+python-dotenv
+openai
+matplotlib
+plotly

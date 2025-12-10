@@ -1,0 +1,562 @@
+[
+  {
+    "question": "What is the on_time_delivery rate by order_region? I want to optimize shipping strategy.",
+    "answer": "In general, on_time_delivery rate is highest for a small subset of order_region, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "on_time_delivery rate",
+    "segment": "order_region",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "What is the total sales by customer_segment? I want to find the most profitable customer groups.",
+    "answer": "In general, total sales is highest for a small subset of customer_segment, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "total sales",
+    "segment": "customer_segment",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "Which customer_segment has the highest average benefit_per_order? I want to optimize shipping strategy.",
+    "answer": "The analysis reveals that average benefit_per_order is unevenly distributed across customer_segment. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "average benefit_per_order",
+    "segment": "customer_segment",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "Which market has the highest average benefit_per_order? I want to identify high-risk regions for delays.",
+    "answer": "The market groups show clear differences in average benefit_per_order. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "average benefit_per_order",
+    "segment": "market",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "Compare average order_item_quantity across different shipping_mode. I want to find the most profitable customer groups.",
+    "answer": "The analysis reveals that average order_item_quantity is unevenly distributed across shipping_mode. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "average order_item_quantity",
+    "segment": "shipping_mode",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "How does average benefit_per_order vary across market groups? I want to find the most profitable customer groups.",
+    "answer": "The analysis reveals that average benefit_per_order is unevenly distributed across market. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "average benefit_per_order",
+    "segment": "market",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "What is the average shipping_delay_days by order_region? I want to identify high-risk regions for delays.",
+    "answer": "The analysis reveals that average shipping_delay_days is unevenly distributed across order_region. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "average shipping_delay_days",
+    "segment": "order_region",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "Compare average shipping_delay_days across different category_name. I want to identify high-risk regions for delays.",
+    "answer": "The category_name groups show clear differences in average shipping_delay_days. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "average shipping_delay_days",
+    "segment": "category_name",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "What is the average shipping_delay_days by category_name? I want to identify high-risk regions for delays.",
+    "answer": "The category_name groups show clear differences in average shipping_delay_days. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "average shipping_delay_days",
+    "segment": "category_name",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "How does total sales vary across category_name groups? I want to find the most profitable customer groups.",
+    "answer": "The category_name groups show clear differences in total sales. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "total sales",
+    "segment": "category_name",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "How does total sales vary across category_name groups? I want to optimize shipping strategy.",
+    "answer": "In general, total sales is highest for a small subset of category_name, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "total sales",
+    "segment": "category_name",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "What is the total sales by shipping_mode? I want to prioritize customers for retention programs.",
+    "answer": "In general, total sales is highest for a small subset of shipping_mode, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "total sales",
+    "segment": "shipping_mode",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "Compare total sales across different payment_type. I want to find the most profitable customer groups.",
+    "answer": "In general, total sales is highest for a small subset of payment_type, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "total sales",
+    "segment": "payment_type",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "What is the average shipping_delay_days by customer_segment? I want to prioritize customers for retention programs.",
+    "answer": "The customer_segment groups show clear differences in average shipping_delay_days. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "average shipping_delay_days",
+    "segment": "customer_segment",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "Compare average shipping_delay_days across different customer_segment. I want to optimize shipping strategy.",
+    "answer": "The customer_segment groups show clear differences in average shipping_delay_days. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "average shipping_delay_days",
+    "segment": "customer_segment",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "Compare average benefit_per_order across different order_region. I want to prioritize customers for retention programs.",
+    "answer": "The analysis reveals that average benefit_per_order is unevenly distributed across order_region. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "average benefit_per_order",
+    "segment": "order_region",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "How does average shipping_delay_days vary across market groups? I want to prioritize customers for retention programs.",
+    "answer": "The analysis reveals that average shipping_delay_days is unevenly distributed across market. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "average shipping_delay_days",
+    "segment": "market",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "Compare total sales across different customer_segment. I want to identify high-risk regions for delays.",
+    "answer": "The analysis reveals that total sales is unevenly distributed across customer_segment. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "total sales",
+    "segment": "customer_segment",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "Compare total sales across different market. I want to optimize shipping strategy.",
+    "answer": "In general, total sales is highest for a small subset of market, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "total sales",
+    "segment": "market",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "How does late_delivery_risk percentage vary across shipping_mode groups? I want to prioritize customers for retention programs.",
+    "answer": "The shipping_mode groups show clear differences in late_delivery_risk percentage. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "shipping_mode",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "How does late_delivery_risk percentage vary across market groups? I want to find the most profitable customer groups.",
+    "answer": "In general, late_delivery_risk percentage is highest for a small subset of market, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "market",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "What is the average shipping_delay_days by shipping_mode? I want to find the most profitable customer groups.",
+    "answer": "In general, average shipping_delay_days is highest for a small subset of shipping_mode, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "average shipping_delay_days",
+    "segment": "shipping_mode",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "How does average benefit_per_order vary across payment_type groups? I want to understand where operational bottlenecks exist.",
+    "answer": "In general, average benefit_per_order is highest for a small subset of payment_type, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "average benefit_per_order",
+    "segment": "payment_type",
+    "focus": "understand where operational bottlenecks exist"
+  },
+  {
+    "question": "What is the average benefit_per_order by shipping_mode? I want to identify high-risk regions for delays.",
+    "answer": "In general, average benefit_per_order is highest for a small subset of shipping_mode, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "average benefit_per_order",
+    "segment": "shipping_mode",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "What is the late_delivery_risk percentage by shipping_mode? I want to optimize shipping strategy.",
+    "answer": "The shipping_mode groups show clear differences in late_delivery_risk percentage. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "shipping_mode",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "What is the late_delivery_risk percentage by customer_segment? I want to understand where operational bottlenecks exist.",
+    "answer": "The customer_segment groups show clear differences in late_delivery_risk percentage. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "customer_segment",
+    "focus": "understand where operational bottlenecks exist"
+  },
+  {
+    "question": "What is the late_delivery_risk percentage by customer_segment? I want to identify high-risk regions for delays.",
+    "answer": "The analysis reveals that late_delivery_risk percentage is unevenly distributed across customer_segment. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "customer_segment",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "What is the total sales by order_region? I want to identify high-risk regions for delays.",
+    "answer": "The order_region groups show clear differences in total sales. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "total sales",
+    "segment": "order_region",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "How does late_delivery_risk percentage vary across shipping_mode groups? I want to optimize shipping strategy.",
+    "answer": "The shipping_mode groups show clear differences in late_delivery_risk percentage. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "shipping_mode",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "Compare late_delivery_risk percentage across different payment_type. I want to find the most profitable customer groups.",
+    "answer": "The analysis reveals that late_delivery_risk percentage is unevenly distributed across payment_type. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "payment_type",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "Which customer_segment has the highest late_delivery_risk percentage? I want to identify high-risk regions for delays.",
+    "answer": "The customer_segment groups show clear differences in late_delivery_risk percentage. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "customer_segment",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "What is the on_time_delivery rate by market? I want to find the most profitable customer groups.",
+    "answer": "The market groups show clear differences in on_time_delivery rate. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "on_time_delivery rate",
+    "segment": "market",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "What is the total sales by payment_type? I want to optimize shipping strategy.",
+    "answer": "The payment_type groups show clear differences in total sales. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "total sales",
+    "segment": "payment_type",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "What is the late_delivery_risk percentage by payment_type? I want to find the most profitable customer groups.",
+    "answer": "The analysis reveals that late_delivery_risk percentage is unevenly distributed across payment_type. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "payment_type",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "Which market has the highest average order_item_quantity? I want to understand where operational bottlenecks exist.",
+    "answer": "In general, average order_item_quantity is highest for a small subset of market, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "average order_item_quantity",
+    "segment": "market",
+    "focus": "understand where operational bottlenecks exist"
+  },
+  {
+    "question": "Which order_region has the highest average benefit_per_order? I want to find the most profitable customer groups.",
+    "answer": "The order_region groups show clear differences in average benefit_per_order. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "average benefit_per_order",
+    "segment": "order_region",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "Which shipping_mode has the highest average benefit_per_order? I want to optimize shipping strategy.",
+    "answer": "In general, average benefit_per_order is highest for a small subset of shipping_mode, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "average benefit_per_order",
+    "segment": "shipping_mode",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "Compare average benefit_per_order across different market. I want to understand where operational bottlenecks exist.",
+    "answer": "In general, average benefit_per_order is highest for a small subset of market, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "average benefit_per_order",
+    "segment": "market",
+    "focus": "understand where operational bottlenecks exist"
+  },
+  {
+    "question": "Compare total sales across different customer_segment. I want to understand where operational bottlenecks exist.",
+    "answer": "The analysis reveals that total sales is unevenly distributed across customer_segment. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "total sales",
+    "segment": "customer_segment",
+    "focus": "understand where operational bottlenecks exist"
+  },
+  {
+    "question": "How does average shipping_delay_days vary across market groups? I want to understand where operational bottlenecks exist.",
+    "answer": "The market groups show clear differences in average shipping_delay_days. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "average shipping_delay_days",
+    "segment": "market",
+    "focus": "understand where operational bottlenecks exist"
+  },
+  {
+    "question": "Which payment_type has the highest late_delivery_risk percentage? I want to find the most profitable customer groups.",
+    "answer": "The payment_type groups show clear differences in late_delivery_risk percentage. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "payment_type",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "Which category_name has the highest average order_item_quantity? I want to find the most profitable customer groups.",
+    "answer": "The category_name groups show clear differences in average order_item_quantity. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "average order_item_quantity",
+    "segment": "category_name",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "Compare average order_item_quantity across different payment_type. I want to optimize shipping strategy.",
+    "answer": "The payment_type groups show clear differences in average order_item_quantity. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "average order_item_quantity",
+    "segment": "payment_type",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "How does average benefit_per_order vary across shipping_mode groups? I want to optimize shipping strategy.",
+    "answer": "In general, average benefit_per_order is highest for a small subset of shipping_mode, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "average benefit_per_order",
+    "segment": "shipping_mode",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "What is the average order_item_quantity by shipping_mode? I want to prioritize customers for retention programs.",
+    "answer": "In general, average order_item_quantity is highest for a small subset of shipping_mode, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "average order_item_quantity",
+    "segment": "shipping_mode",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "Which order_region has the highest total sales? I want to prioritize customers for retention programs.",
+    "answer": "The order_region groups show clear differences in total sales. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "total sales",
+    "segment": "order_region",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "Which order_region has the highest late_delivery_risk percentage? I want to prioritize customers for retention programs.",
+    "answer": "The analysis reveals that late_delivery_risk percentage is unevenly distributed across order_region. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "order_region",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "How does late_delivery_risk percentage vary across category_name groups? I want to find the most profitable customer groups.",
+    "answer": "The analysis reveals that late_delivery_risk percentage is unevenly distributed across category_name. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "category_name",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "How does total sales vary across customer_segment groups? I want to optimize shipping strategy.",
+    "answer": "In general, total sales is highest for a small subset of customer_segment, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "total sales",
+    "segment": "customer_segment",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "How does on_time_delivery rate vary across payment_type groups? I want to find the most profitable customer groups.",
+    "answer": "The analysis reveals that on_time_delivery rate is unevenly distributed across payment_type. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "on_time_delivery rate",
+    "segment": "payment_type",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "What is the average benefit_per_order by order_region? I want to find the most profitable customer groups.",
+    "answer": "The analysis reveals that average benefit_per_order is unevenly distributed across order_region. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "average benefit_per_order",
+    "segment": "order_region",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "How does average order_item_quantity vary across order_region groups? I want to identify high-risk regions for delays.",
+    "answer": "The order_region groups show clear differences in average order_item_quantity. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "average order_item_quantity",
+    "segment": "order_region",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "How does average benefit_per_order vary across category_name groups? I want to identify high-risk regions for delays.",
+    "answer": "In general, average benefit_per_order is highest for a small subset of category_name, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "average benefit_per_order",
+    "segment": "category_name",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "Which category_name has the highest on_time_delivery rate? I want to understand where operational bottlenecks exist.",
+    "answer": "In general, on_time_delivery rate is highest for a small subset of category_name, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "on_time_delivery rate",
+    "segment": "category_name",
+    "focus": "understand where operational bottlenecks exist"
+  },
+  {
+    "question": "Which market has the highest average shipping_delay_days? I want to understand where operational bottlenecks exist.",
+    "answer": "The analysis reveals that average shipping_delay_days is unevenly distributed across market. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "average shipping_delay_days",
+    "segment": "market",
+    "focus": "understand where operational bottlenecks exist"
+  },
+  {
+    "question": "Compare average order_item_quantity across different payment_type. I want to identify high-risk regions for delays.",
+    "answer": "The analysis reveals that average order_item_quantity is unevenly distributed across payment_type. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "average order_item_quantity",
+    "segment": "payment_type",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "Which market has the highest on_time_delivery rate? I want to find the most profitable customer groups.",
+    "answer": "In general, on_time_delivery rate is highest for a small subset of market, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "on_time_delivery rate",
+    "segment": "market",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "What is the total sales by category_name? I want to understand where operational bottlenecks exist.",
+    "answer": "The category_name groups show clear differences in total sales. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "total sales",
+    "segment": "category_name",
+    "focus": "understand where operational bottlenecks exist"
+  },
+  {
+    "question": "Compare average shipping_delay_days across different customer_segment. I want to prioritize customers for retention programs.",
+    "answer": "In general, average shipping_delay_days is highest for a small subset of customer_segment, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "average shipping_delay_days",
+    "segment": "customer_segment",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "What is the total sales by order_region? I want to identify high-risk regions for delays.",
+    "answer": "The order_region groups show clear differences in total sales. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "total sales",
+    "segment": "order_region",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "How does on_time_delivery rate vary across shipping_mode groups? I want to identify high-risk regions for delays.",
+    "answer": "In general, on_time_delivery rate is highest for a small subset of shipping_mode, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "on_time_delivery rate",
+    "segment": "shipping_mode",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "What is the late_delivery_risk percentage by category_name? I want to find the most profitable customer groups.",
+    "answer": "In general, late_delivery_risk percentage is highest for a small subset of category_name, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "category_name",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "Which market has the highest late_delivery_risk percentage? I want to prioritize customers for retention programs.",
+    "answer": "In general, late_delivery_risk percentage is highest for a small subset of market, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "market",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "What is the late_delivery_risk percentage by category_name? I want to optimize shipping strategy.",
+    "answer": "The category_name groups show clear differences in late_delivery_risk percentage. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "category_name",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "How does late_delivery_risk percentage vary across customer_segment groups? I want to understand where operational bottlenecks exist.",
+    "answer": "The analysis reveals that late_delivery_risk percentage is unevenly distributed across customer_segment. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "customer_segment",
+    "focus": "understand where operational bottlenecks exist"
+  },
+  {
+    "question": "Which category_name has the highest late_delivery_risk percentage? I want to understand where operational bottlenecks exist.",
+    "answer": "The analysis reveals that late_delivery_risk percentage is unevenly distributed across category_name. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "category_name",
+    "focus": "understand where operational bottlenecks exist"
+  },
+  {
+    "question": "What is the late_delivery_risk percentage by payment_type? I want to prioritize customers for retention programs.",
+    "answer": "In general, late_delivery_risk percentage is highest for a small subset of payment_type, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "payment_type",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "Compare late_delivery_risk percentage across different market. I want to prioritize customers for retention programs.",
+    "answer": "The market groups show clear differences in late_delivery_risk percentage. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "market",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "Compare on_time_delivery rate across different customer_segment. I want to identify high-risk regions for delays.",
+    "answer": "In general, on_time_delivery rate is highest for a small subset of customer_segment, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "on_time_delivery rate",
+    "segment": "customer_segment",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "How does average benefit_per_order vary across shipping_mode groups? I want to prioritize customers for retention programs.",
+    "answer": "In general, average benefit_per_order is highest for a small subset of shipping_mode, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "average benefit_per_order",
+    "segment": "shipping_mode",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "Which customer_segment has the highest late_delivery_risk percentage? I want to identify high-risk regions for delays.",
+    "answer": "The customer_segment groups show clear differences in late_delivery_risk percentage. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "customer_segment",
+    "focus": "identify high-risk regions for delays"
+  },
+  {
+    "question": "How does average shipping_delay_days vary across category_name groups? I want to find the most profitable customer groups.",
+    "answer": "The category_name groups show clear differences in average shipping_delay_days. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "average shipping_delay_days",
+    "segment": "category_name",
+    "focus": "find the most profitable customer groups"
+  },
+  {
+    "question": "Compare average shipping_delay_days across different market. I want to prioritize customers for retention programs.",
+    "answer": "In general, average shipping_delay_days is highest for a small subset of market, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "average shipping_delay_days",
+    "segment": "market",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "Which payment_type has the highest on_time_delivery rate? I want to optimize shipping strategy.",
+    "answer": "The payment_type groups show clear differences in on_time_delivery rate. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "on_time_delivery rate",
+    "segment": "payment_type",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "Which payment_type has the highest on_time_delivery rate? I want to understand where operational bottlenecks exist.",
+    "answer": "The payment_type groups show clear differences in on_time_delivery rate. A few segments stand out with significantly higher values, indicating where operations or pricing strategies are working better.",
+    "metric": "on_time_delivery rate",
+    "segment": "payment_type",
+    "focus": "understand where operational bottlenecks exist"
+  },
+  {
+    "question": "How does late_delivery_risk percentage vary across shipping_mode groups? I want to optimize shipping strategy.",
+    "answer": "The analysis reveals that late_delivery_risk percentage is unevenly distributed across shipping_mode. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "late_delivery_risk percentage",
+    "segment": "shipping_mode",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "What is the total sales by market? I want to prioritize customers for retention programs.",
+    "answer": "In general, total sales is highest for a small subset of market, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "total sales",
+    "segment": "market",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "Compare on_time_delivery rate across different market. I want to optimize shipping strategy.",
+    "answer": "In general, on_time_delivery rate is highest for a small subset of market, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "on_time_delivery rate",
+    "segment": "market",
+    "focus": "optimize shipping strategy"
+  },
+  {
+    "question": "What is the total sales by order_region? I want to prioritize customers for retention programs.",
+    "answer": "The analysis reveals that total sales is unevenly distributed across order_region. Some segments perform well, while others lag behind, suggesting targeted interventions could improve overall performance.",
+    "metric": "total sales",
+    "segment": "order_region",
+    "focus": "prioritize customers for retention programs"
+  },
+  {
+    "question": "What is the total sales by customer_segment? I want to prioritize customers for retention programs.",
+    "answer": "In general, total sales is highest for a small subset of customer_segment, while most segments cluster around the average. These outliers are good candidates for deeper investigation.",
+    "metric": "total sales",
+    "segment": "customer_segment",
+    "focus": "prioritize customers for retention programs"
+  }
+]
