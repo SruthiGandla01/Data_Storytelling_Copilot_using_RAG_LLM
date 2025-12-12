@@ -55,7 +55,7 @@ LLM_MODEL_NAME = os.getenv("LLM_MODEL_NAME", "gpt-4o")
 # Embedding model name used by sentence-transformers
 EMBEDDING_MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
 
-USE_TINYLLAMA_LOCAL = True  # toggle
+USE_TINYLLAMA_LOCAL = os.getenv("USE_TINYLLAMA_LOCAL", "false").lower() == "true" # toggle
 TINYLLAMA_BASE = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
 TINYLLAMA_ADAPTER_PATH =  "/Users/sruthigandla/Documents/Northeastern/Prompt engineering/Final Project/finetuning/tinyllama_lora"
 

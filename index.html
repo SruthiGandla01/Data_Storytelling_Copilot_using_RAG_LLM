@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsightWeaver – Data Storytelling Copilot</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #22c55e;
+            --primary-dark: #15803d;
+            --secondary: #0ea5e9;
+            --accent: #a855f7;
+            --bg-dark: #020617;
+            --bg-card: #020617;
+            --bg-card-alt: #020617;
+            --text: #e5e7eb;
+            --text-muted: #9ca3af;
+            --border: #1f2933;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top, #0b1120 0, #020617 45%, #020617 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .bg-animation {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 5% 15%, rgba(34, 197, 94, 0.13), transparent 55%),
+                radial-gradient(circle at 95% 80%, rgba(14, 165, 233, 0.12), transparent 55%),
+                radial-gradient(circle at 50% 60%, rgba(168, 85, 247, 0.08), transparent 60%);
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 0.9rem 2.2rem;
+            background: rgba(2, 6, 23, 0.9);
+            border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-link {
+            text-decoration: none;
+        }
+        .logo {
+            font-size: 1.45rem;
+            font-weight: 700;
+            background: linear-gradient(120deg, #f9fafb, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+        .logo span {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            background: radial-gradient(circle at 30% 20%, #bbf7d0, #22c55e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: #052e16;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+            transform: translateY(-1px);
+        }
+        .nav-buttons { display: flex; gap: 0.75rem; }
+
+        .btn {
+            padding: 0.55rem 1.15rem;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            cursor: pointer;
+            border: 1px solid transparent;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+        }
+        .btn-primary:hover {
+            transform: translateY(-1px) scale(1.01);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.5);
+        }
+        .btn-secondary {
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--text);
+            border-color: rgba(148, 163, 184, 0.35);
+        }
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.15), rgba(15, 23, 42, 0.95));
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7rem 1.7rem 4rem;
+        }
+        .hero-inner {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+            gap: 2.75rem;
+            align-items: center;
+        }
+        .hero-main {
+            text-align: left;
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            background: linear-gradient(120deg, rgba(15, 23, 42, 0.9), rgba(22, 163, 74, 0.18));
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        .badge span {
+            width: 20px;
+            height: 20px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(34, 197, 94, 0.2);
+            color: #bbf7d0;
+        }
+        .hero h1 {
+            font-size: 3.35rem;
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 1rem;
+            background: linear-gradient(120deg, #f9fafb, #a5b4fc, #22c55e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero h1 span {
+            display: block;
+            font-size: 3.55rem;
+        }
+        .hero-subtitle {
+            font-size: 1.08rem;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin-bottom: 1.6rem;
+        }
+        .hero-subtitle strong {
+            color: #e5e7eb;
+            font-weight: 600;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.8rem;
+        }
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.75rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+        .hero-meta-item i {
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        /* Hero side card */
+        .hero-card {
+            background: radial-gradient(circle at top, rgba(59,130,246,0.18), rgba(15,23,42,0.98));
+            border-radius: 20px;
+            padding: 1.7rem 1.9rem;
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.55);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            inset: -40%;
+            background:
+                radial-gradient(circle at 0% 0%, rgba(34,197,94,0.12), transparent 55%),
+                radial-gradient(circle at 100% 100%, rgba(59,130,246,0.16), transparent 60%);
+            opacity: 0.8;
+            pointer-events: none;
+        }
+        .hero-card-inner {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.9rem;
+        }
+        .hero-card-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .hero-card-tag {
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(34, 197, 94, 0.18);
+            color: #bbf7d0;
+            border: 1px solid rgba(34, 197, 94, 0.45);
+        }
+        .hero-card-body {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.75rem;
+            color: #9ca3af;
+            background: rgba(15, 23, 42, 0.85);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid rgba(31, 41, 55, 0.9);
+            margin-bottom: 1rem;
+        }
+        .hero-card-body code {
+            color: #e5e7eb;
+        }
+        .badge-mini {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+        .badge-mini span {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: #22c55e;
+            box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 4.5rem 1.7rem 4.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            max-width: 580px;
+            margin: 0.2rem auto 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.75rem;
+        }
+        .feature-card {
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 16px;
+            padding: 1.6rem 1.7rem;
+            border: 1px solid rgba(30, 64, 175, 0.45);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            background: radial-gradient(circle at top left, rgba(34,197,94,0.25), transparent 50%);
+            transition: opacity 0.25s ease;
+            pointer-events: none;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(34,197,94,0.7);
+            box-shadow: 0 18px 35px rgba(15, 23, 42, 0.7);
+        }
+        .feature-card:hover::before { opacity: 1; }
+        .feature-icon {
+            width: 44px; height: 44px;
+            border-radius: 14px;
+            background: radial-gradient(circle at 30% 20%, #bbf7d0, #22c55e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #052e16;
+        }
+        .feature-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+        }
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* PIPELINE */
+        .pipeline {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.1rem;
+            align-items: center;
+        }
+        .pipeline-step {
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.45);
+            padding: 1.1rem 1.3rem;
+            min-width: 170px;
+            text-align: left;
+            transition: all 0.25s ease;
+        }
+        .pipeline-step:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 30px rgba(15, 23, 42, 0.9);
+        }
+        .pipeline-step i {
+            font-size: 1.3rem;
+            margin-bottom: 0.45rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .pipeline-step h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.15rem;
+        }
+        .pipeline-step p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+        .pipeline-arrow {
+            font-size: 1.4rem;
+            color: rgba(148, 163, 184, 0.9);
+        }
+
+        /* TECH */
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .tech-item {
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 999px;
+            padding: 0.5rem 1.2rem;
+            border: 1px solid rgba(55, 65, 81, 0.9);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: all 0.25s ease;
+        }
+        .tech-item:hover {
+            border-color: var(--primary);
+            color: var(--text);
+            transform: translateY(-1px);
+        }
+
+        /* DOCS */
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+        .doc-card {
+            background: rgba(15, 23, 42, 0.98);
+            border-radius: 14px;
+            padding: 1.4rem 1.5rem;
+            border: 1px solid rgba(31, 41, 55, 0.9);
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .doc-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            background: radial-gradient(circle at top left, rgba(14, 165, 233, 0.18), transparent 55%);
+            transition: opacity 0.25s;
+        }
+        .doc-card:hover {
+            border-color: rgba(14, 165, 233, 0.9);
+            transform: translateY(-3px);
+        }
+        .doc-card:hover::before { opacity: 1; }
+        .doc-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.35rem;
+            font-size: 0.95rem;
+        }
+        .doc-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        footer {
+            background: rgba(15, 23, 42, 0.98);
+            border-top: 1px solid rgba(31, 41, 55, 0.9);
+            padding: 2.5rem 1.7rem 2.8rem;
+            text-align: center;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .footer-links a {
+            color: var(--text-muted);
+            font-size: 1.4rem;
+            text-decoration: none;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        .footer-text {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 960px) {
+            .hero-inner {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .hero-main {
+                text-align: left;
+            }
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+            .hero h1 span {
+                font-size: 2.7rem;
+            }
+        }
+        @media (max-width: 768px) {
+            nav {
+                padding-inline: 1.1rem;
+            }
+            .nav-links { display: none; }
+            .hero {
+                padding-inline: 1.2rem;
+            }
+            .hero-main {
+                text-align: left;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .pipeline-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="bg-animation"></div>
+
+<nav>
+    <!-- Logo area links to GitHub repo -->
+    <a class="logo-link" href="https://github.com/SruthiGandla01/Data_Storytelling_Copilot_using_RAG_LLM" target="_blank">
+        <div class="logo">
+            <span>IW</span>
+            InsightWeaver
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="#docs">Docs</a></li>
+    </ul>
+    <div class="nav-buttons">
+        <a href="https://github.com/SruthiGandla01/Data_Storytelling_Copilot_using_RAG_LLM" class="btn btn-secondary" target="_blank">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://huggingface.co/spaces/SruthiGandla01/insightweaver-data-storytelling-copilot" class="btn btn-primary" target="_blank">
+            <i class="fas fa-rocket"></i> Launch App
+        </a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-main">
+            <div class="badge">
+                <span>★</span>
+                INFO 7375 – Prompt Engineering • Final Project
+            </div>
+            <h1>
+                InsightWeaver
+                <span>Smart Supply Chain Data Storytelling Copilot</span>
+            </h1>
+            <p class="hero-subtitle">
+                Ask questions like a business stakeholder, get <strong>executable Pandas code, visual summaries, and narrative insights</strong>
+                over a complex Smart Supply Chain dataset – powered by RAG + TinyLlama LoRA + OpenAI.
+            </p>
+            <div class="hero-buttons">
+                <a href="https://huggingface.co/spaces/SruthiGandla01/insightweaver-data-storytelling-copilot" class="btn btn-primary" target="_blank">
+                    <i class="fas fa-play"></i> Try Live Demo
+                </a>
+                <a href="https://github.com/SruthiGandla01/Data_Storytelling_Copilot_using_RAG_LLM" class="btn btn-secondary" target="_blank">
+                    <i class="fab fa-github"></i> View Source on GitHub
+                </a>
+            </div>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <i class="fas fa-database"></i>
+                    Smart Supply Chain dataset • 180k+ order rows
+                </div>
+                <div class="hero-meta-item">
+                    <i class="fas fa-wand-magic-sparkles"></i>
+                    RAG + TinyLlama LoRA narrative generation
+                </div>
+                <div class="hero-meta-item">
+                    <i class="fas fa-code"></i>
+                    Auto-generated Pandas analysis code
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="hero-card-inner">
+                <div class="hero-card-header">
+                    <div class="hero-card-title">
+                        <i class="fas fa-terminal"></i> Example question →
+                    </div>
+                    <div class="hero-card-tag">Interactive Copilot</div>
+                </div>
+                <div class="hero-card-body">
+<pre><code># User:
+"Which customer segments generate the 
+highest profit per order across regions?"
+
+# InsightWeaver generates:
+- Pandas code to group, aggregate & rank
+- A tidy result table
+- A business-style narrative, e.g.:
+
+"Enterprise clients in North America
+drive the highest profit per order,
+while SMB customers in APAC under-perform
+despite healthy order volumes."</code></pre>
+                </div>
+                <div class="badge-mini">
+                    <span></span> Hover the header, logo, or buttons to jump to the GitHub repo
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features">
+    <div class="section-header">
+        <h2>✨ What InsightWeaver Can Do</h2>
+        <p>From messy supply chain tables to clean code, KPIs, and executive-ready narratives – in one conversational loop.</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-icon">📚</div>
+            <h3>RAG-powered Knowledge Base</h3>
+            <p>
+                A curated markdown knowledge base (<code>kb/</code>) describing schema, KPIs, customer segments, and fulfillment risks, 
+                embedded with <strong>SentenceTransformers</strong> and stored in <strong>ChromaDB</strong> for precise retrieval.
+            </p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🧠</div>
+            <h3>Code-Generating LLM Orchestrator</h3>
+            <p>
+                Your question goes through a prompt-engineered orchestration layer that asks OpenAI to produce safe, 
+                idiomatic <strong>Pandas code</strong> over the cleaned dataset (<code>orders_clean.parquet</code>).
+            </p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">📈</div>
+            <h3>Automated Data Runner</h3>
+            <p>
+                The generated code is executed in a sandboxed environment, with error-handling, type coercion, 
+                and summary-stats extraction for the final narrative (<code>pipeline/data_runner.py</code>).
+            </p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🗣️</div>
+            <h3>TinyLlama LoRA Narratives</h3>
+            <p>
+                A <strong>TinyLlama</strong> model fine-tuned with <strong>LoRA</strong> (<code>finetuning/</code>) turns raw tables and stats into 
+                stakeholder-friendly narratives: "why this matters" for supply chain managers and analysts.
+            </p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🧪</div>
+            <h3>Synthetic Q&A & Evaluation</h3>
+            <p>
+                Synthetic business questions are generated (<code>synthetic/</code>) to stress-test the copilot. 
+                Evaluation scripts (<code>evaluation/</code>) score relevance, correctness, and narrative quality.
+            </p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">🖥️</div>
+            <h3>Streamlit Business UI</h3>
+            <p>
+                A lightweight <strong>Streamlit</strong> interface (<code>app.py</code>) with sample questions, 
+                data preview, and side-by-side display of <strong>code, table, and narrative</strong>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="pipeline">
+    <div class="section-header">
+        <h2>🔄 Pipeline Architecture</h2>
+        <p>End-to-end flow from a natural-language question to code, results, and story.</p>
+    </div>
+
+    <div class="pipeline">
+        <div class="pipeline-step">
+            <i class="fas fa-table"></i>
+            <h4>1. Data Layer</h4>
+            <p>Raw CSV → cleaned parquet in <code>data/processed/orders_clean.parquet</code>.</p>
+        </div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step">
+            <i class="fas fa-book-open"></i>
+            <h4>2. Knowledge Base</h4>
+            <p>Markdown docs in <code>kb/</code> embedded & indexed with ChromaDB.</p>
+        </div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step">
+            <i class="fas fa-magnifying-glass"></i>
+            <h4>3. RAG Retrieval</h4>
+            <p>Relevant schema + metric hints injected into the LLM prompt.</p>
+        </div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step">
+            <i class="fas fa-code"></i>
+            <h4>4. Code Generation</h4>
+            <p>OpenAI model outputs Pandas code via <code>pipeline/code_generator.py</code>.</p>
+        </div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step">
+            <i class="fas fa-play-circle"></i>
+            <h4>5. Execution</h4>
+            <p>Code is executed safely, returning <code>result_df</code> + stats.</p>
+        </div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step">
+            <i class="fas fa-brain"></i>
+            <h4>6. TinyLlama Narrative</h4>
+            <p>LoRA-adapted TinyLlama turns results into business stories.</p>
+        </div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step">
+            <i class="fas fa-chart-line"></i>
+            <h4>7. UI & Storytelling</h4>
+            <p>Streamlit app shows question, code, result table, and narrative.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="section-header">
+        <h2>🛠️ Tech Stack</h2>
+        <p>Modern open-source tools stitched together into a cohesive analytics copilot.</p>
+    </div>
+    <div class="tech-grid">
+        <div class="tech-item">
+            <i class="fab fa-python" style="color:#3776ab;"></i> Python 3.10
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-chart-area" style="color:#16a34a;"></i> Streamlit
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-database" style="color:#0ea5e9;"></i> Pandas & PyArrow
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-cubes" style="color:#facc15;"></i> TinyLlama + LoRA (PEFT)
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-vector-square" style="color:#22d3ee;"></i> SentenceTransformers
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-cube" style="color:#a855f7;"></i> ChromaDB Vector Store
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-key" style="color:#f97316;"></i> OpenAI API (code generation)
+        </div>
+        <div class="tech-item">
+            <i class="fas fa-flask" style="color:#e11d48;"></i> Synthetic Q&A & Evaluation
+        </div>
+    </div>
+</section>
+
+<section id="docs">
+    <div class="section-header">
+        <h2>📚 Repository Map & Docs</h2>
+        <p>Jump directly into the parts of the project you care about.</p>
+    </div>
+    <div class="docs-grid">
+        <a href="https://github.com/SruthiGandla01/Data_Storytelling_Copilot_using_RAG_LLM#readme" class="doc-card" target="_blank">
+            <h4><i class="fas fa-book"></i> README & Setup</h4>
+            <p>High-level overview, environment setup, and how to run the Streamlit app locally.</p>
+        </a>
+        <a href="https://github.com/SruthiGandla01/Data_Storytelling_Copilot_using_RAG_LLM/tree/main/data" class="doc-card" target="_blank">
+            <h4><i class="fas fa-database"></i> Data Pipeline</h4>
+            <p>Raw vs processed data, cleaning steps, and schema details for the Smart Supply Chain dataset.</p>
+        </a>
+        <a href="https://github.com/SruthiGandla01/Data_Storytelling_Copilot_using_RAG_LLM/tree/main/kb" class="doc-card" target="_blank">
+            <h4><i class="fas fa-book-open"></i> Knowledge Base (RAG)</h4>
+            <p>Metric definitions, business playbook, and schema docs powering retrieval-augmented prompts.</p>
+        </a>
+        <a href="https://github.com/SruthiGandla01/Data_Storytelling_Copilot_using_RAG_LLM/tree/main/rag" class="doc-card" target="_blank">
+            <h4><i class="fas fa-magnifying-glass"></i> RAG & Chroma Store</h4>
+            <p>ChromaDB index construction, embedding model choice, and retrieval strategies.</p>
+        </a>
+        <a href="https://github.com/SruthiGandla01/Data_Storytelling_Copilot_using_RAG_LLM/tree/main/finetuning" class="doc-card" target="_blank">
+            <h4><i class="fas fa-brain"></i> TinyLlama LoRA Fine-tuning</h4>
+            <p>LoRA configuration, training script, and how the narrative model is loaded at inference time.</p>
+        </a>
+        <a href="https://github.com/SruthiGandla01/Data_Storytelling_Copilot_using_RAG_LLM/tree/main/pipeline" class="doc-card" target="_blank">
+            <h4><i class="fas fa-sitemap"></i> Orchestration Pipeline</h4>
+            <p>Code generator, runner, and insight generator modules that connect LLMs, data, and UI.</p>
+        </a>
+        <a href="https://github.com/SruthiGandla01/Data_Storytelling_Copilot_using_RAG_LLM/tree/main/synthetic" class="doc-card" target="_blank">
+            <h4><i class="fas fa-flask"></i> Synthetic Q&A</h4>
+            <p>Generation of diverse supply-chain questions for training and evaluation.</p>
+        </a>
+        <a href="https://github.com/SruthiGandla01/Data_Storytelling_Copilot_using_RAG_LLM/tree/main/evaluation" class="doc-card" target="_blank">
+            <h4><i class="fas fa-clipboard-check"></i> Evaluation Suite</h4>
+            <p>Scripts for measuring answer quality, robustness, and narrative usefulness.</p>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://github.com/SruthiGandla01/Data_Storytelling_Copilot_using_RAG_LLM" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://huggingface.co/spaces/SruthiGandla01/insightweaver-data-storytelling-copilot" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+        <a href="mailto:YOUR_EMAIL_HERE"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p class="footer-text">
+        InsightWeaver – Data Storytelling Copilot • Built by Sruthi Gandla • Northeastern University, 2025
+    </p>
+</footer>
+</body>
+</html>
