@@ -1,4 +1,4 @@
-# 📊 InsightWeaver — Data Storytelling Copilot Using RAG + LLM Fine-Tuning
+# 📊 InsightWeaver — Data Storytelling Copilot Using RAG + LLM 
 
 An AI system that transforms raw supply-chain data into insights, narratives, and visual-ready analytics.
 
