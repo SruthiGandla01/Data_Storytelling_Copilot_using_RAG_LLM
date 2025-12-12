@@ -19,7 +19,7 @@ __pycache__/
 .DS_Store
 
 # Model artifacts (if they get big)
-fine_tuning/tinyllama_lora/
+finetuning/tinyllama_lora/
 checkpoints/
 
 
