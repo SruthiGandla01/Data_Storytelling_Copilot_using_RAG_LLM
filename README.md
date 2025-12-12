@@ -17,7 +17,9 @@ An AI system that transforms raw supply-chain data into insights, narratives, an
 | 📊 **Dataset** | [DataCo Supply Chain](https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis) |
 
 ---
+<img width="1464" height="727" alt="image" src="https://github.com/user-attachments/assets/828eaa8a-42b0-490b-a067-50b3e13af809" />
 
+---
 ## 🌟 Overview
 
 **InsightWeaver** is an intelligent data storytelling copilot designed to bridge the gap between raw operational data and business-ready insights.
