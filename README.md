@@ -13,7 +13,7 @@ An AI system that transforms raw supply-chain data into insights, narratives, an
 | Resource | Link |
 |----------|------|
 | 🌐 **Live Website** | [GitHub Pages](https://sruthigandla01.github.io/Data_Storytelling_Copilot_using_RAG_LLM/) |
-| 🚀 **Live Demo** | [Hugging Face Spaces](https://huggingface.co/spaces/SruthiGandla01/insightweaver) |
+| 🚀 **Live Demo** | [Hugging Face Spaces](https://huggingface.co/spaces/SruthiGandla01/insightweaver-data-storytelling-copilot) |
 | 📊 **Dataset** | [DataCo Supply Chain](https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis) |
 
 ---
@@ -158,7 +158,7 @@ Users can:
 - 📊 See output tables
 - 🧠 Read AI-generated insights
 
-**[🚀 Try it live on Hugging Face!](https://huggingface.co/spaces/YOUR_USERNAME/insightweaver)**
+**[🚀 Try it live on Hugging Face!](https://huggingface.co/spaces/SruthiGandla01/insightweaver-data-storytelling-copilot)**
 
 ---
 
@@ -293,7 +293,7 @@ OPENAI_API_KEY=your_key_here
 
 #### 4. HF Space auto-builds and launches the app ✅
 
-**[🌟 View Live Demo](https://huggingface.co/spaces/SruthiGandla01/insightweaver)**
+**[🌟 View Live Demo](https://huggingface.co/spaces/SruthiGandla01/insightweaver-data-storytelling-copilot)**
 
 ---
 
