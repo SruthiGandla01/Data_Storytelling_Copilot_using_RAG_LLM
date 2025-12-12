@@ -8,6 +8,16 @@ An AI system that transforms raw supply-chain data into insights, narratives, an
 
 ---
 
+## 🔗 Quick Links
+
+| Resource | Link |
+|----------|------|
+| 🌐 **Live Website** | [GitHub Pages](https://sruthigandla01.github.io/Data_Storytelling_Copilot_using_RAG_LLM/) |
+| 🚀 **Live Demo** | [Hugging Face Spaces](https://huggingface.co/spaces/SruthiGandla01/insightweaver) |
+| 📊 **Dataset** | [DataCo Supply Chain](https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis) |
+
+---
+
 ## 🌟 Overview
 
 **InsightWeaver** is an intelligent data storytelling copilot designed to bridge the gap between raw operational data and business-ready insights.
@@ -373,17 +383,6 @@ It is a fully working end-to-end copilot showcasing:
 - ✅ LLM-based narrative creation
 - ✅ Fine-tuning
 - ✅ Real deployment (HF + GitHub Pages)
-
----
-
-## 🔗 Quick Links
-
-| Resource | Link |
-|----------|------|
-| 🌐 **Live Website** | [GitHub Pages](https://sruthigandla01.github.io/Data_Storytelling_Copilot_using_RAG_LLM/) |
-| 🚀 **Live Demo** | [Hugging Face Spaces](https://huggingface.co/spaces/SruthiGandla01/insightweaver) |
-| 📂 **Source Code** | [GitHub Repository](https://github.com/SruthiGandla01/Data_Storytelling_Copilot_using_RAG_LLM) |
-| 📊 **Dataset** | [DataCo Supply Chain](https://www.kaggle.com/datasets/shashwatwork/dataco-smart-supply-chain-for-big-data-analysis) |
 
 ---
 
